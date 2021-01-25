@@ -359,13 +359,16 @@ template {
 }
 
 .checkout {
+    display: flex;
     position: relative;
+    margin-right: 15px;
 }
+
 
 .checkout .counter {
     position: absolute;
     top: 0;
-    right: 8px;
+    right: 70px;
     background-color: lightgreen;
     color: green;
     display: inline-block;
@@ -377,6 +380,7 @@ template {
     text-align: center;
     font-size: small;
 }
+
 
 .checkout img {
     width: 24px;
@@ -489,4 +493,7 @@ button.btn {
 .card-price {
     padding: 15px 0;
     font-size: 1.5em;
+}
+.exit {
+    margin-left: 15px;
 }

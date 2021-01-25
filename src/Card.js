@@ -12,7 +12,7 @@ function Card(props) {
             <div className="card-info">
                 <div className="card-name">{props.product.name}</div>
                 <div className="card-price">{props.product.price}</div>
-                <Button />
+                <Button database={props.database} />
             </div>
 
         </div>
