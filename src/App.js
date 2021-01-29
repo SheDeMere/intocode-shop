@@ -4,12 +4,12 @@ import Content from "./Content";
 import {useState} from "react";
 
 function App(props) {
-    const database = [
+    const [database, setDatabase] = useState([
         {
             id: 1,
             name: "MacBook",
             price: 100000,
-            bought: false,
+            bought: true,
             rating: 5,
             image: "http://intocode.ru/d/react-project-1/images/1.jpg"
         },
@@ -17,7 +17,7 @@ function App(props) {
             id: 2,
             name: "Galaxy",
             price: 35999,
-            bought: false,
+            bought: true,
             rating: 4,
             image: "http://intocode.ru/d/react-project-1/images/2.jpg"
         },
@@ -25,7 +25,7 @@ function App(props) {
             id: 3,
             name: "Скутер",
             price: 65500,
-            bought: false,
+            bought: true,
             rating: 5,
             image: "http://intocode.ru/d/react-project-1/images/3.jpg"
         },
@@ -77,13 +77,27 @@ function App(props) {
             rating: 5,
             image: "http://intocode.ru/d/react-project-1/images/9.jpg"
         }
-    ];
-const [base, setBase ] = useState(database)
+])
+    const setBought = id => {
+        setDatabase(
+            database.map( product => {
+                    if (product.id === id) {
+                        return {
+                            ...product,
+                            bought: true
+                        }
+                    }
+                    return product
+                }
+            )
+        )
+
+    }
 
     return (
         <div className={'app'}>
-            <Header database={database}/>
-            <Content database={database} />
+            <Header database={database} setdatabase={setDatabase}/>
+            <Content database={database} setBought={setBought}/>
         </div>
     );
 }

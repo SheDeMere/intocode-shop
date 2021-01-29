@@ -1,12 +1,14 @@
 import React from 'react';
 import checkoutSvg from './shopping-cart-solid.svg'
 function Checkout(props) {
-    const date = props.database.filter(item => item.bought).length
+    const counter = props.database.filter(item => {
+        return item.bought === true
+    })
     return (
         <div className={'checkout'}>
             <div>
                 <img src={checkoutSvg} alt="shop"/>
-                <span className={'counter'}>{date}</span>
+                <span className={'counter'}>{counter.length}</span>
             </div>
             <div className={'exit'}>
                 выход
